@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f2f2;
+    color: #111;
+    font-family: "Manrope", sans-serif;
+
+    padding: 30px 32px;
+}
+
+
+header {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.header {
+    width: 100%;
+    height: 68px;
+
+    background-color: #f8dcd8;
+   
+    border-radius: 0 0 9px 9px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 400;
+    font-style: italic;
+
+    margin: 0;
+}
+
+nav {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 400;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+.container {
+    width: 68%;
+
+    display: grid;
+
+    grid-template-columns: 1.15fr 1fr;
+
+    grid-template-rows: 320px 210px;
+
+    gap: 16px;
+}
+
+
+
+.card1 {
+    background-color: #f8dcd8;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+}
+
+.card1 h2 {
+    font-size: 39px;
+    line-height: 1.02;
+
+    font-weight: 700;
+
+    letter-spacing: -1.5px;
+
+    max-width: 430px;
+}
+
+.card1 h2 em {
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+.card2 {
+    background-color: #f8dcd8;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: -14px;
+    margin-bottom: -14px;
+
+    z-index: 2;
+
+    overflow: hidden;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+.card2 img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 14px;
+}
+
+.card3 {
+    background-color: #f8dcd8;
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.card3 p {
+    max-width: 330px;
+
+    font-size: 15px;
+    line-height: 1.25;
+
+    font-weight: 400;
+}
+
+
+.card4 {
+    background-color: #f7a29b;
+
+    border-radius: 15px;
+
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.card4 p {
+    width: 100px;
+
+    font-size: 12px;
+    line-height: 1.1;
+}
+
+.card4 a {
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 30px;
+
+    align-self: flex-end;
+}
+
+.card4 h3 {
+    font-size: 40px;
+    font-weight: 400;
+
+    margin-bottom: 0;
+}
+
+.musea {
+    position: absolute;
+
+    top: 114px;
+    right: 32px;
+
+    width: 29%;
+
+    height: 548px;
+
+    background-color: #f8dcd8;
+
+    padding: 22px 17px;
+}
+
+.musea h2 {
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.musea > a {
+    position: absolute;
+
+    top: 24px;
+    right: 17px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 12px;
+}
+
+.musea ul {
+    list-style: none;
+
+    margin-top: 25px;
+}
+
+.musea li {
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 2px solid #ff8f87;
+
+    font-size: 16px;
+}
+
+.musea li:first-child {
+    border-top: none;
+}
+
+
+footer {
+    position: absolute;
+
+    right: 32px;
+    top: 675px;
+
+    width: 29%;
+    height: 68px;
+
+    background-color: #f8dcd8;
+
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer a {
+    color: #333;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        width: 100%;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .musea {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        margin-top: 16px;
+    }
+
+    footer {
+        position: static;
+
+        width: 100%;
+
+        margin-top: 16px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    nav {
+        gap: 15px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .card1,
+    .card2,
+    .card3,
+    .card4 {
+        min-height: 280px;
+    }
+
+    .card2 {
+        margin: 0;
+    }
+
+    .card1 h2 {
+        font-size: 34px;
+    }
+}
