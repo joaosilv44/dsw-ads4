@@ -137,3 +137,30 @@ function palindromo(string){
         return "Não é palíndromo!"
     }
 }
+
+function notas(){
+    notas = []
+
+    maior = notas[0]
+    menor = notas[0]
+    soma = 0
+    i = 0
+
+    for(notas[i]; i < length(notas); i++){
+        if(notas[i] > maior){
+            maior = notas[i];
+        }
+        else if(notas[i] < menor){
+            menor = notas[i];
+        }
+        soma += notas[i];
+    }
+    media = soma / length(notas)
+
+    console.log(`A maior nota foi: ${maior}, a menor foi: ${menor} e a média foi: ${média}`)
+}
+
+function fibonacci(termo){
+    arrayFibonacci = []
+    
+}
