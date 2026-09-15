@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 7 - Controle de Estoque</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .abaixo-minimo {
+            background-color: #ffcccc;
+            color: #990000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Controle de Estoque</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade Atual</th>
+                <th>Quantidade Mínima</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-estoque">
+            
+        </tbody>
+    </table>
+
+    <script>
+        const produtos = [
+            { nome: 'Arroz 5kg', quantidade: 15, minimo: 10 },
+            { nome: 'Feijão 1kg', quantidade: 4, minimo: 8 },
+            { nome: 'Óleo de Soja', quantidade: 20, minimo: 12 },
+            { nome: 'Açúcar 1kg', quantidade: 5, minimo: 10 },
+            { nome: 'Sal 1kg', quantidade: 25, minimo: 5 }
+        ];
+
+        const tbody = document.getElementById('tabela-estoque');
+
+        produtos.forEach(produto => {
+            const tr = document.createElement('tr');
+
+            const estaAbaixo = produto.quantidade < produto.minimo;
+            if (estaAbaixo) {
+                tr.classList.add('abaixo-minimo');
+            }
+
+            tr.innerHTML = `
+                <td>${produto.nome}</td>
+                <td>${produto.quantidade}</td>
+                <td>${produto.minimo}</td>
+                <td>${estaAbaixo ? 'Abaixo do Mínimo' : 'Normal'}</td>
+            `;
+
+            tbody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>

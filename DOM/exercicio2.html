@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Contador</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px; }
+        #contador {
+            font-size: 3rem;
+            margin: 20px;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contador</h1>
+    <div id="contador">0</div>
+    <button id="btn-diminuir">Diminuir (-)</button>
+    <button id="btn-aumentar">Aumentar (+)</button>
+
+    <script>
+        const spanContador = document.getElementById('contador');
+        const btnDiminuir = document.getElementById('btn-diminuir');
+        const btnAumentar = document.getElementById('btn-aumentar');
+
+        let valorAtual = 0;
+
+        btnAumentar.addEventListener('click', () => {
+            valorAtual++;
+            spanContador.textContent = valorAtual;
+        });
+
+        btnDiminuir.addEventListener('click', () => {
+            if (valorAtual > 0){
+                valorAtual--;
+                spanContador.textContent = valorAtual;
+            }
+        });
+    </script>
+</body>
+</html>

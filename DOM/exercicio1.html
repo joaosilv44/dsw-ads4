@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1 - Lista de itens</title>
+    <style>
+        ul {
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        i {
+           width: 1000px; 
+           margin: 5px;
+        }
+        .destacado, .info {
+            background-color: yellow;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="minha-lista">
+        <li>Item teste</li>
+        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores ratione eligendi officia assumenda incidunt cum mollitia, repellendus magnam, veniam expedita odit voluptate impedit enim! Repellat facere rerum quam recusandae?</li>
+        <li>Outro teste</li>
+        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit nesciunt odio consectetur quisquam dolorem consequuntur adipisci nulla perferendis eaque suscipit voluptate at hic magnam esse cupiditate, aut maxime ducimus velit?</li>
+    </ul>
+    <i>Texto normal : dentro do limite de 20 do limite especificado de caracteres</i><br>
+    <i class="info">Texto que ultrapassa o limite de caracteres</i>
+
+    <script>
+    
+        const limiteCaracteres = 20;
+
+        const itens = document.querySelectorAll('#minha-lista li');
+
+        itens.forEach(item => {
+            if (item.textContent.length > limiteCaracteres) {
+                item.classList.add('destacado');
+            }
+        });
+    </script>
+</body>
+</html>

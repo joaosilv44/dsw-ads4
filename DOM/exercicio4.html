@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4 - Tema claro/escuro</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 20px;
+        }
+        body.escuro {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Alternador de Tema</h1>
+    <p>Clique no botão abaixo para alternar entre o modo claro e escuro.</p>
+    <button id="btn-tema">Mudar Tema</button>
+
+    <script>
+        const btnTema = document.getElementById('btn-tema');
+
+        btnTema.addEventListener('click', () => {
+            document.body.classList.toggle('escuro');
+        });
+    </script>
+</body>
+</html>

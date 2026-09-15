@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Lista de tarefas</title>
+    <style>
+        li {
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin: 5px 0;
+            user-select: none;
+        }
+        .concluido {
+            text-decoration: line-through;
+            color: rgb(60, 232, 13); }
+    </style>
+</head>
+<body>
+
+    <h1>Minhas Tarefas</h1>
+    <ul id="lista-tarefas">
+        <li>Estudar JavaScript</li>
+        <li>Fazer compras no supermercado</li>
+        <li>Lavar a louça</li>
+    </ul>
+
+    <script>
+        const itensTarefas = document.querySelectorAll('#lista-tarefas li');
+
+        itensTarefas.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('concluido');
+            });
+        });
+    </script>
+</body>
+</html>

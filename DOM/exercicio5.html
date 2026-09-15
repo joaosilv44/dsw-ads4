@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5 - Cadastro</title>
+    <style>
+        form, h1, h2, .resultado { 
+            width: 600px;
+            margin: 0 auto;
+        }
+        div { margin-bottom: 10px; }
+        .erro { color: red; }
+        .sucesso { color: green; }
+    </style>
+</head>
+<body>
+
+    <h1>Cadastro</h1>
+    <form id="form-cadastro">
+        <div>
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome">
+        </div>
+        <div>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email">
+        </div>
+        <div>
+            <label for="idade">Idade:</label><br>
+            <input type="number" id="idade">
+        </div>
+        <button type="submit">Cadastrar</button>
+        <p id="mensagem-erro" class="erro"></p>
+    </form>
+
+    <h2>Dados Cadastrados:</h2>
+    <div class="resultado" id="resultado">Nenhum cadastro realizado ainda.</div>
+
+    <script>
+        const form = document.getElementById('form-cadastro');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const idadeInput = document.getElementById('idade');
+        const msgErro = document.getElementById('mensagem-erro');
+        const resultadoDiv = document.getElementById('resultado');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nome = nomeInput.value.trim();
+            const email = emailInput.value.trim();
+            const idade = idadeInput.value.trim();
+
+            if (!nome || !email || !idade) {
+                msgErro.textContent = 'Por favor, preencha todos os campos!';
+                resultadoDiv.innerHTML = '';
+                return;
+            }
+
+            msgErro.textContent = '';
+
+            resultadoDiv.innerHTML = `
+                <p class="sucesso"><strong>Cadastro realizado com sucesso!</strong></p>
+                <p><strong>Nome:</strong> ${nome}</p>
+                <p><strong>E-mail:</strong> ${email}</p>
+                <p><strong>Idade:</strong> ${idade} anos</p>
+            `;
+        });
+    </script>
+</body>
+</html>
