@@ -69,6 +69,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'biblioteca.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
@@ -126,3 +127,5 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+

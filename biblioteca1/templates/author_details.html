@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca do Pato</title>
+</head>
+<body>
+    <h1>Livros de {{ author }}</h1>
+
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }}</li>
+        {% empty %}
+            <li>Este autor ainda não possui livros cadastrados.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
