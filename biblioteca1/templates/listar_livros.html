@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Livros | Biblioteca{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Acervo</span>
+        <h1>Livros cadastrados</h1>
+        <p>Gerencie os livros disponíveis na biblioteca.</p>
+    </div>
+
+    <a href="{% url 'criar_livro' %}" class="btn btn-primary">
+        + Novo livro
+    </a>
+</section>
+
+<section class="content-card">
+
+    <div class="card-header">
+        <h2>Todos os livros</h2>
+        <span class="count">{{ books|length }} livros</span>
+    </div>
+
+    {% for livro in books %}
+
+        <article class="book-item">
+
+            <div class="book-info">
+                <h3>{{ livro.title }}</h3>
+
+                <p>
+                    {% for autor in livro.authors.all %}
+                        <a href="{% url 'author_detail' autor.id %}"> {{ autor.name }}{% if not forloop.last %}</a>,{% endif %}                        
+                    {% empty %}
+                        Autor não informado
+                    {% endfor %}
+                </p>
+
+                <span class="book-year">
+                    Publicado em {{ livro.year }}
+                </span>
+            </div>
+
+            <div class="book-actions">
+
+                {% if livro.available %}
+                    <span class="status status-active">Disponível</span>
+                {% else %}
+                    <span class="status status-inactive">Indisponível</span>
+                {% endif %}
+            </div>
+
+        </article>
+
+    {% empty %}
+
+        <div class="empty-state">
+            <span>📖</span>
+            <h3>Nenhum livro cadastrado</h3>
+            <p>Comece adicionando o primeiro livro ao acervo.</p>
+            <a href="{% url 'criar_livro' %}" class="btn btn-primary">
+                Cadastrar livro
+            </a>
+        </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

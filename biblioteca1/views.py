@@ -5,7 +5,7 @@ from .forms import AutorForm, LivroForm
 def listar_livros(request):
     books = Book.objects.all()
 
-    return render(request, 'lista_livros.html', {'books': books})
+    return render(request, 'listar_livros.html', {'books': books})
 
 
 def criar_editar_livro(request, pk=None):

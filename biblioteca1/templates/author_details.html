@@ -1,19 +1,96 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca do Pato</title>
-</head>
-<body>
-    <h1>Livros de {{ author }}</h1>
 
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }}</li>
-        {% empty %}
-            <li>Este autor ainda não possui livros cadastrados.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}{{ author.name }} | Biblioteca do Pato{% endblock %}
+
+{% block content %}
+
+<div class="breadcrumb">
+    <a href="{% url 'listar_livros' %}">Livros</a>
+    <span>/</span>
+    <span>Detalhes do autor</span>
+</div>
+
+<section class="author-profile">
+
+    <div class="author-avatar">
+        {{ author.name|first|upper }}
+    </div>
+
+    <div class="author-info">
+        <span class="eyebrow">Autor cadastrado</span>
+
+        <h1>{{ author.name }}</h1>
+
+        <p>
+            Nacionalidade:
+            {{ author.nationality|default:"Não informada" }}
+        </p>
+    </div>
+
+</section>
+
+<section class="content-card">
+
+    <div class="card-header">
+        <div>
+            <h2>Livros do autor</h2>
+            <p>Obras cadastradas de {{ author.name }}.</p>
+        </div>
+
+        <span class="count">
+            {{ books|length }} livros
+        </span>
+    </div>
+
+    {% for book in books %}
+
+        <article class="book-item">
+
+            <div class="book-info">
+                <h3>{{ book.title }}</h3>
+
+                <span class="book-year">
+                    Publicado em {{ book.year }}
+                </span>
+            </div>
+
+            <div class="book-actions">
+
+                {% if book.available %}
+                    <span class="status status-active">
+                        Disponível
+                    </span>
+                {% else %}
+                    <span class="status status-inactive">
+                        Indisponível
+                    </span>
+                {% endif %}
+
+                <a href="{% url 'editar_livro' book.pk %}"
+                   class="btn btn-secondary">
+                    Editar livro
+                </a>
+
+            </div>
+
+        </article>
+
+    {% empty %}
+
+        <div class="empty-state">
+            <span>📚</span>
+
+            <h3>Nenhum livro encontrado</h3>
+
+            <p>
+                Este autor ainda não possui livros cadastrados.
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

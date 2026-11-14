@@ -24,7 +24,7 @@ class Book(models.Model):
         Author,
         related_name="books",
     )
-    categories = models.ManyToManyField(
+    categories = models.ManyToManyField(    
         Category,
         blank=True,
     )

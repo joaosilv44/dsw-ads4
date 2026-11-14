@@ -1,0 +1,49 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'biblioteca1/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+
+            <a href="{% url 'listar_livros' %}" class="logo">
+                <span class="logo-icon">📚</span>
+                Biblioteca do PATO
+            </a>
+
+            <nav class="navigation">
+                <a href="{% url 'listar_livros' %}">Livros</a>
+                <a href="{% url 'criar_livro' %}">Novo livro</a>
+                <a href="{% url 'cadastrar_autor' %}">Novo autor</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Sistema de gerenciamento de biblioteca</p>
+        </div>
+    </footer>
+
+</body>
+</html>

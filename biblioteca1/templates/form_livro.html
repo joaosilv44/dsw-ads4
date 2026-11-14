@@ -1,3 +1,10 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Novo autor | Biblioteca{% endblock %}
+
+{% block content %}
+
 <h1>
     {% if modo_edicao %}
         Editar livro
@@ -47,3 +54,4 @@
         {% endif %}
     </button>
 </form>
+{% endblock %}
