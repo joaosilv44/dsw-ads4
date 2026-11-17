@@ -46,6 +46,18 @@
         {{ form.categories.errors }}
     </div>
 
+    <div>
+        {{ form.pages.label_tag }}
+        {{ form.pages }}
+        {{ form.pages.errors }}
+    </div>
+
+    <div>
+        {{ form.isbn.label_tag }}
+        {{ form.isbn }}
+        {{ form.isbn.errors }}
+    </div>
+
     <button type="submit">
         {% if modo_edicao %}
             Salvar alterações

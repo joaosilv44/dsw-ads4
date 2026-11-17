@@ -1,4 +1,5 @@
 from django.db import models
+from .validators import validar_titulo_livro, validar_ano, validar_qtd_paginas, validar_isbn
 
 class Author(models.Model):
     name = models.CharField(max_length=200, blank=True)
@@ -28,9 +29,11 @@ class Book(models.Model):
         Category,
         blank=True,
     )
-    title = models.CharField(max_length=200)
-    year = models.IntegerField()
+    title = models.CharField(max_length=200, validators=[validar_titulo_livro])
+    year = models.IntegerField(validators=[validar_ano])
     available= models.BooleanField(default=True)
+    pages= models.IntegerField(null=True, blank=True, validators=[validar_qtd_paginas])
+    isbn= models.CharField(null=True, blank=True, validators=[validar_isbn])
 
     def __str__(self):
         return self.title

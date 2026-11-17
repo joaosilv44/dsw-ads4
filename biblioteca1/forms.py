@@ -8,7 +8,7 @@ from .models import Author, Book
 class LivroForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ['authors', 'categories', 'title', 'year', 'available']
+        fields = ['authors', 'categories', 'title', 'year', 'available', 'pages', 'isbn']
 
         labels = {
             'authors': 'Autores',
@@ -16,6 +16,8 @@ class LivroForm(forms.ModelForm):
             'title': 'Título',
             'year': 'Ano',
             'available': 'Ativo',
+            'pages': 'Páginas',
+            'isbn': "ISBN",
         }
 
         error_messages = {
@@ -34,18 +36,6 @@ class LivroForm(forms.ModelForm):
         widgets = {
             'categories': forms.CheckboxSelectMultiple(),
         }
-
-        def clean_title(self):
-            title = self.cleaned_data['title']
-
-            title = ' '.join(title.split())
-
-            if len(title) < 3:
-                raise ValidationError(
-                    'O título precisa ter pelo menos 3 caracteres.'
-                )
-
-            return title
 
     def clean_year(self):
         year = self.cleaned_data['year']
